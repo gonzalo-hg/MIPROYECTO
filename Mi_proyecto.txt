@@ -3,3 +3,39 @@ ahora si se subio
 commit 2
 se agrego la tercer linea
 pero vamos a agregar la cuarta tambien 
+
+//codigo puesto en la ramaMain
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/wait.h>
+
+#define N 4
+#define M 8
+
+int main(){
+   int i,valor;
+   int inicio, fin;
+   for(i=0;i<N;i++){
+       if(fork())
+	   break;
+   
+   }
+
+   if(i==0){
+   
+      printf("Soy la raiz y espero....\n");
+      wait(&valor);
+   }else{
+      i--;
+      inicio=(M/N)*i;
+      fin=inicio+(M/N);
+      printf("Proceso %d Me toca los renglones Inicio %d  Fin %d\n",i,inicio,fin);
+
+      for(;;){}
+
+      sleep(100);
+   }
+
+   return 1;
+}
